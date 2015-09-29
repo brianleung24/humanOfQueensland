@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/parser.js"></script>
+</head>
+<body>
+<h3>TestRSS Result</h3>
+
+<!-- JS -->
+<script>
+
+    $(document).ready(function() {
+
+        $.ajax({//retrieve JSON through ajax, if the parameter(courseID) from url is wrong, noting shows
+            type: 'GET',
+            url: "http://humans_of_the_world.uqcloud.net/Backend/getRSSFeed.php?categories=Politics-TopStory&regions=MakeupPlace1-MakeupPlace2",
+            success: function(data){
+                var rssData = JSON.parse(data);
+                if(rssData.success==1) {
+                    var conainerHTML = "";
+                    for (var i = 0; i < rssData.rss.length; i++) {//generate all question from JSON
+                        conainerHTML += getRssSection(rssData.rss[i]);
+                    }
+                    document.getElementById("container").innerHTML = conainerHTML;
+
+                }else{alert("Fail");}
+            },
+            error: function(){
+                alert('There was an error adding your comment');
+            }
+        });
+    });
+
+    function getRssSection(rssItem){
+        var HTML = "<h3>NewsPapre "+rssItem.newspaper+"</h3>"+
+                "<h3> category"+rssItem.category+"</h3>"+
+                "<h3> region"+rssItem.region+"</h3>"+
+                "<br><h3>RSS content</h3>"+
+                "<div id='"+rssItem.id+"'></div>";
+        parseRSS(rssItem.rssLink, "#"+rssItem.id);
+        return HTML;
+
+
+    }
+</script>
+<span id="container"></span>
+
+</body>
+<!-- Library -->
+
+</html>
