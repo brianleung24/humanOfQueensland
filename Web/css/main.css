@@ -1,0 +1,10 @@
+#toggle{
+    position: fixed;
+    left: 20px;
+}
+
+#wrapper{
+    position: fixed;
+    top: 60px;
+    width: 100%;
+}
