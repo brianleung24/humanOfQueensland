@@ -1,6 +1,8 @@
 #toggle{
     position: fixed;
     left: 20px;
+    top: 50px;
+    z-index: 10;
 }
 
 #wrapper{
@@ -11,6 +13,7 @@
 
 #sidebar-wrapper {
     background: none;
+    top: 110px;
 }
 
 .btn-topstories {
@@ -18,6 +21,10 @@
       background-color: #66cccc;
       border-color: #66cccc;
     }
+
+.btn-topstories:focus{
+    background-color: #5bb7b7;   
+}
     
 .btn-events {
   color: #fff;
@@ -54,4 +61,10 @@
     height: 10%;
     width: 100%;
     margin-bottom: 10px;
+}
+
+ .navbar {
+  position: relative;
+  min-height: 50px;
+  border: 1px solid transparent;
 }

@@ -98,11 +98,11 @@
 
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 0px;
+        padding-left: 70px;
     }
 
     #wrapper.toggled {
-        padding-left: 0px;
+        padding-left: 250px;
     }
 
     #sidebar-wrapper {
@@ -121,6 +121,10 @@
     #wrapper.toggled #page-content-wrapper {
         position: relative;
         margin-right: 20px;
+    }
+    
+    #menu-toggle.toggled{
+        left: 200px;
     }
     #menu-toggle{
         visibility: visible;
