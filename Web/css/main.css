@@ -8,3 +8,50 @@
     top: 60px;
     width: 100%;
 }
+
+#sidebar-wrapper {
+    background: none;
+}
+
+.btn-topstories {
+      color: #fff;
+      background-color: #66cccc;
+      border-color: #66cccc;
+    }
+    
+.btn-events {
+  color: #fff;
+  background-color: #f84525;
+  border-color: #f84525;
+}
+
+.btn-development {
+  color: #fff;
+  background-color: #c0d6e4;
+  border-color: #c0d6e4;
+}
+
+.btn-political {
+  color: #fff;
+  background-color: #d4a58a;
+  border-color: #d4a58a;
+}
+
+.btn-weather {
+  color: #fff;
+  background-color: #66cdaa;
+  border-color: #66cdaa;
+}
+
+.btn-sports {
+  color: #fff;
+  background-color: #f50000;
+  border-color: #f84525;
+}
+
+
+.btn-height{
+    height: 10%;
+    width: 100%;
+    margin-bottom: 10px;
+}
