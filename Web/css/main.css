@@ -1,6 +1,6 @@
 #toggle{
     position: fixed;
-    left: 20px;
+    left: 0px;
     top: 50px;
     z-index: 10;
 }
@@ -65,6 +65,6 @@
 
  .navbar {
   position: relative;
-  min-height: 50px;
+  min-height: 80px;
   border: 1px solid transparent;
 }
