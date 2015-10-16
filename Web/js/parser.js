@@ -8,14 +8,21 @@ function parseRSS(url, container) {
     dataType: 'json',
     success: function(data) {
       //console.log(data.responseData.feed);
-      $(container).html('<h2>'+capitaliseFirstLetter(data.responseData.feed.title)+'</h2>');
-
-
-      $.each(data.responseData.feed.entries, function(key, value){
-        var thehtml = '<h3><a href="'+value.link+'" target="_blank">'+value.title+'</a></h3>';
-        $(container).append(thehtml);
-         console.log(data.responseData.feed.entries);
-        $(container).append("<p>"+value.content+"</p>");
+      $(container).html('<li><h2>'+capitaliseFirstLetter(data.responseData.feed.title)+'</h2></li>');
+	   var thehtml = "";
+		$.each(data.responseData.feed.entries, function(key, value){
+		  thehtml = '<tr>'+value+'</tr>';
+        thehtml = '<tr><div class = "feed"><h3><a href="'+'" target="_blank">'+value.title+'</a></h3>';
+        console.log(data);
+        console.log(data.responseData.feed.entries);
+        thehtml+=value.content+"</div></li>";
+		$(container).append(thehtml);
+		var key = document.getElementsByTagName("img");
+		var img = document.getElementsByTagName("img")[key.length-1];
+		img.className = "rssImage";
+		//img.height = "1000";
+		//img.width = "1000";
+		//$(container).append(" ");
 
       });
     }
