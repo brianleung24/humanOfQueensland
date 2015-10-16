@@ -19,7 +19,6 @@
 .btn-topstories {
       color: #fff;
       background-color: #66cccc;
-      border-color: #66cccc;
     }
 
 .btn-topstories:focus{
@@ -68,3 +67,4 @@
   min-height: 80px;
   border: 1px solid transparent;
 }
+
