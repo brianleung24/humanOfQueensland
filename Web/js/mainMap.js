@@ -4,7 +4,7 @@
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 6,
-            center: {lat:-23.1252682,lng:141.6150639},
+            center: {lat:-23.5058643,lng:148.7691268},
             mapTypeId: google.maps.MapTypeId.TERRAIN,
             maxZoom:7,
             minZoom:5.5
@@ -29,8 +29,15 @@
             });
             polygon.setMap(map);
             polygon.addListener('click',goToResult);
+            google.maps.event.addListener(polygon,"mouseover",function(){//change fill when move over
+                this.setOptions({fillOpacity: 0});
+            });
+            google.maps.event.addListener(polygon,"mouseout",function(){
+                this.setOptions({fillOpacity: 0.7});
+            });
             function goToResult(event){//go to result page when click
-           alert (dis.color);
+            console.log("selected"+dis.name);
+            window.location.href = "resultPage.html?categories="+getPostParameter()+"&regions="+dis.postName;
             }
         }
 

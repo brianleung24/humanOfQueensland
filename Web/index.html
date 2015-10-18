@@ -28,7 +28,6 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <script src="js/menuController.js"></script>
     <![endif]-->
     <style>
         html, body {
@@ -62,35 +61,36 @@
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
+
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <p>
                         Filter your news categories
                     </p>
                 </li>
-                <li>
-                    <a href="#">Top Stories</a>
+                <li id="topStories">
+                    <a href="#" onclick="menuClick('topStories')">Top Stories</a>
                 </li>
-                <li>
-                    <a href="#">Events</a>
+                <li id="event">
+                    <a href="#"onclick="menuClick('event')">Events</a>
                 </li>
-                <li>
-                    <a href="#">Development</a>
+                <li id="development">
+                    <a href="#"onclick="menuClick('development')">Development</a>
                 </li>
-                <li>
-                    <a href="#">Political</a>
+                <li id="political">
+                    <a href="#"onclick="menuClick('political')">Political</a>
                 </li>
-                <li>
-                    <a href="#">Weather</a>
+                <li id="weather">
+                    <a href="#"onclick="menuClick('weather')">Weather</a>
                 </li>
-                <li>
-                    <a href="#">Sports</a>
+                <li id="sports">
+                    <a href="#"onclick="menuClick('sports')">Sports</a>
                 </li>
-                <li>
-                    <a href="#">Community</a>
+                <li id="community">
+                    <a href="#"onclick="menuClick('community')">Community</a>
                 </li>
-                <a href="post.html"><button type="button" class="btn btn-topstories btn-lg btn-height" >Create a Community Post</button></a>
             </ul>
+            <div style="position:absolute; bottom:0; "><a href="post.html"><button type="button" class="btn btn-topstories btn-lg btn-height" >Create a Community Post</button></a></div>
 <!--
             <ul class="sidebar-nav">
                 <li><button type="button" class="btn btn-topstories btn-lg bth-block btn-height" >Top Stories</button></li>
@@ -135,6 +135,7 @@
         $("#wrapper").toggleClass("toggled");
     });
     </script>
+     <script src="js/menuController.js"></script>
     <script src = "js/QLDMapPolygon.js"></script>
     <script src = "js/mainMap.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV-XQZ1hgN3sVtzscTqHcmgw9rMeJJDcI&callback=initMap"
