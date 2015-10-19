@@ -165,8 +165,7 @@
              <div class="container-fluid">
 
             <div class="navbar-header">
-                <i class="fa fa-bars fa-4x navbar-brand" id="menu-toggle"></i>
-              <a class="navbar-brand" href="#">
+              <a class="navbar-brand" href="#" id="navbarName">
                   <!--<div id="toggle"></div>--> <p>Humans of Queensland</p>
               </a>
             </div>
@@ -176,45 +175,6 @@
 
         <div id="wrapper">
 
-            <!-- Sidebar -->
-            <div id="sidebar-wrapper">
-                <!--<ul class="sidebar-nav">
-                    <li class="sidebar-brand">
-                        <a href="#">
-                            Start Bootstrap
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="#">Shortcuts</a>
-                    </li>
-                    <li>
-                        <a href="#">Overview</a>
-                    </li>
-                    <li>
-                        <a href="#">Events</a>
-                    </li>
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>-->
-                <ul class="sidebar-nav">
-                <li><button type="button" class="btn btn-topstories btn-lg bth-block btn-height" >Top Stories</button></li>
-                    <li><button type="button" class="btn btn-events btn-lg btn-height">Events</button></li>
-                    <li><button type="button" class="btn btn-development btn-lg btn-height">Development</button></li>
-                    <li><button type="button" class="btn btn-political btn-lg btn-height">Political</button></li>
-                    <li><button type="button" class="btn btn-weather btn-lg btn-height">Weather</button></li>
-                    <li><button type="button" class="btn btn-sports btn-lg btn-height">Sports</button></li>
-                </ul>
-            </div>
             <!-- /#sidebar-wrapper -->
 
             <!-- Page Content -->
@@ -252,11 +212,11 @@
               <form>
                 <input type="text" name="user" placeholder="Username">
                 <input type="password" name="pass" placeholder="Password">
-                <input type="submit" name="login" class="login login-submit" value="Login" id="myLogin">
+                  <a href="index.html"><input  name="login" class="login login-submit" value="Login" id="myLogin"></a>
                   <script type="text/javascript">
-                    document.getElementById("myLogin").onclick = function () {
-                        location.href = "index.html";
-                    };
+                    //document.getElementById("myLogin").onclick = function () {
+                      //  window.location.href = "index.html";
+                    //};
                 </script>
               </form>
             </div>
