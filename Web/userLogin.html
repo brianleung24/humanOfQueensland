@@ -78,7 +78,7 @@
               font-size: 2.3em;
             }
 
-            .login-card input[type=submit] {
+            .login-card input[type=button] {
               width: 100%;
               display: block;
               margin-bottom: 10px;
@@ -173,25 +173,6 @@
         </nav>
     <!--<button id="menu-toggle">Toggle menu</button>-->
 
-        <div id="wrapper">
-
-            <!-- /#sidebar-wrapper -->
-
-            <!-- Page Content -->
-            <div id="page-content-wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                           <div id="map" style="width: 100%; height: 720px"></div>
-
-                           <!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /#page-content-wrapper -->
-
-        </div>
         <!-- /#wrapper -->
 
         <!-- jQuery -->
@@ -200,26 +181,17 @@
         <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>
 
-        <!-- Menu Toggle Script -->
-        <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-        </script>
             <div class="login-card">
                 <h1>Log-in</h1><br>
               <form>
-                <input type="text" name="user" placeholder="Username">
+                <input type="text" placeholder="Username">
                 <input type="password" name="pass" placeholder="Password">
-                  <a href="index.html"><input  name="login" class="login login-submit" value="Login" id="myLogin"></a>
-                  <script type="text/javascript">
-                    //document.getElementById("myLogin").onclick = function () {
-                      //  window.location.href = "index.html";
-                    //};
-                </script>
-              </form>
+                <a href="index.html"><input  type="button" name="login" class="login login-submit" value="Login" id="myLogin"></a>
+                  
+              </form>  
+                
             </div>
+        
 <!--
         <div id="userloginarea">
             <div id="formloginarea">
