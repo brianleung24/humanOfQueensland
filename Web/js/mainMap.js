@@ -6,8 +6,8 @@
             zoom: 6,
             center: {lat:-23.5058643,lng:148.7691268},
             mapTypeId: google.maps.MapTypeId.TERRAIN,
-            maxZoom:7,
-            minZoom:5.5
+            maxZoom:6,
+            minZoom:6
         });
         //draw polygon on map
         setupPolygons(map,mapList.black);
@@ -27,6 +27,18 @@
                 fillColor: dis.color,
                 fillOpacity: 0.7
             });
+
+            var marker = new google.maps.Marker({
+                position: dis.markerLocation,
+                map: map,
+                title: dis.name,
+                visible: false
+            });
+            var infowindow = new google.maps.InfoWindow({
+                content: dis.name
+            });
+                infowindow.open(map, marker);
+
             polygon.setMap(map);
             polygon.addListener('click',goToResult);
             google.maps.event.addListener(polygon,"mouseover",function(){//change fill when move over
@@ -37,7 +49,7 @@
             });
             function goToResult(event){//go to result page when click
             console.log("selected"+dis.name);
-            window.location.href = "resultPage.html?categories="+getPostParameter()+"&regions="+dis.postName;
+            window.location.href = "newsResults.html?"+"&location="+dis.postName;
             }
         }
 
