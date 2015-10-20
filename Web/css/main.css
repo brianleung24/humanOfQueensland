@@ -69,6 +69,12 @@
 }
 
 
+.post-preview img {
+    margin-right: 15px;
+    float: left;
+}
+
+
 /*
 .brand-img{
     width: 100px;
