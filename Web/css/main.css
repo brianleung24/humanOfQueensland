@@ -74,6 +74,19 @@
     float: left;
 }
 
+.fa-arrow-circle-up{
+    position: fixed;
+    bottom: 50px;
+    right: 100px;
+    color: #777;
+}
+
+.backTop{
+    position: fixed;
+    bottom: 20px;
+    right: 90px;
+    color: #777;
+}
 
 /*
 .brand-img{
