@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/parser.js"></script>
+    <style>
+        #container {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            margin: -100px 0 0 -200px;
+            top: 20%;
+            left: 20%;
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- JS -->
+<script>
+
+    $(document).ready(function() {
+
+        $.ajax({//retrieve JSON through ajax, if the parameter(courseID) from url is wrong, noting shows
+            type: 'GET',
+            url: "http://humans_of_the_world.uqcloud.net/Backend/getRSSFeed.php?categories=Politics-TopStory&regions=MakeupPlace1-MakeupPlace2",
+            success: function(data){
+                var rssData = JSON.parse(data);
+                if(rssData.success==1) {
+                    var conainerHTML = "";
+                    for (var i = 0; i < rssData.rss.length; i++) {//generate all question from JSON
+                        conainerHTML += getRssSection(rssData.rss[i]);
+                    }
+                    document.getElementById("container").innerHTML = conainerHTML;
+
+                }else{alert("Fail");}
+            },
+            error: function(){
+                alert('There was an error adding your comment');
+            }
+        });
+    });
+
+    function getRssSection(rssItem){// the string below return a HTML of a  
+        var HTML = "<div id='content'><h3>NewsPapre "+rssItem.newspaper+"</h3>"+
+                "<h3> category"+rssItem.category+"</h3>"+
+                "<h3> region"+rssItem.region+"</h3>"+
+                "<br><h3>RSS content</h3>"+
+                "<div id='"+rssItem.id+"'></div>";
+        parseRSS(rssItem.rssLink, "#"+rssItem.id);
+        return HTML;
+
+
+    }4
+</script>
+<span id="container"></span>
+</div>
+</body>
+<!-- Library -->
+
+</html>

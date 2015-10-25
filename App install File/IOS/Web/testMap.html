@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple Polygon</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script src = "js/QLDMapPolygon.js"></script>
+<script>
+
+    // This example creates a simple polygon representing the Bermuda Triangle.
+
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 6,
+            center: {lat:-23.1252682,lng:141.6150639},
+            mapTypeId: google.maps.MapTypeId.TERRAIN,
+            maxZoom:7,
+            minZoom:5.5,
+            draggable:false
+        });
+
+        setupPolygons(map,mapList.black);
+        setupPolygons(map,mapList.blue);
+        setupPolygons(map,mapList.green);
+        setupPolygons(map,mapList.pink);
+        setupPolygons(map,mapList.purple);
+        setupPolygons(map,mapList.red);
+        setupPolygons(map,mapList.yellow);
+        setupPolygons(map,mapList.orange);
+
+        //bermudaTriangle.setMap(map);
+        //bermudaTriangle.addListener('click', showArrays);
+
+        function setupPolygons(map,dis){
+
+                console.log(dis);
+                new google.maps.Polygon({
+                    paths: dis.polygon,
+                    strokeColor: '#000000',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 4,
+                    fillColor: dis.color,
+                    fillOpacity: 0.7
+                }).setMap(map);
+            }
+
+
+    }
+
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV-XQZ1hgN3sVtzscTqHcmgw9rMeJJDcI&signed_in=true&callback=initMap"></script>
+</body>
+</html>

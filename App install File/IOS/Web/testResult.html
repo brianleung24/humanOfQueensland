@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+	<script type="text/javascript" language="javascript" src="js/parser.js"></script>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    
+    <!-- Custom main CSS -->
+    <link href="css/main.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+    <style>
+    html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    #container {
+            height: 100%;
+			overflow: scroll;
+        }
+
+	h1{
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+		size: 14px;
+		color:#ff0000;
+		text-align: center;
+	}
+	.feed{
+		width: 100%;
+		height:100%;
+		border: 1px solid red;
+		
+	}
+	.rssImage{
+		width: 20%; 
+		height:20%;
+	}
+	
+    </style>
+</head>
+
+<body>
+     <nav class="navbar navbar-default" id="nav">
+
+         <div class="container-fluid">
+
+        <div class="navbar-header">
+            <i class="fa fa-bars fa-4x navbar-brand" id="menu-toggle"></i>
+          <a class="navbar-brand" href="#">
+              <!--<div id="toggle"></div>--> <p>Humans of Queensland</p>
+          </a>
+        </div>
+      </div>
+    </nav>
+<!--<button id="menu-toggle">Toggle menu</button>-->
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <!--<ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Start Bootstrap
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Shortcuts</a>
+                </li>
+                <li>
+                    <a href="#">Overview</a>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>-->
+            <ul class="sidebar-nav">
+            <li><button type="button" class="btn btn-topstories btn-lg bth-block btn-height" >Top Stories</button></li>
+                <li><button type="button" class="btn btn-events btn-lg btn-height">Events</button></li>
+                <li><button type="button" class="btn btn-development btn-lg btn-height">Development</button></li>
+                <li><button type="button" class="btn btn-political btn-lg btn-height">Political</button></li>
+                <li><button type="button" class="btn btn-weather btn-lg btn-height">Weather</button></li>
+                <li><button type="button" class="btn btn-sports btn-lg btn-height">Sports</button></li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                       <div id="container" style="width: 100%; height: 720px"></div>
+
+                       <!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+</body>
+
+<!-- JS -->
+<script>
+    $(document).ready(function() {
+        $.ajax({//retrieve JSON through ajax, if the parameter(courseID) from url is wrong, noting shows
+            type: 'GET',
+            url: "http://humans_of_the_world.uqcloud.net/Backend/getRSSFeed.php?categories=Politics-TopStory&regions=MakeupPlace1-MakeupPlace2",
+            success: function(data){
+                var rssData = JSON.parse(data);
+                if(rssData.success==1) {
+                    var conainerHTML = "";
+                    for (var i = 0; i < rssData.rss.length; i++) {//generate all question from JSON
+                        conainerHTML += getRssSection(rssData.rss[i]);
+                    }
+                    document.getElementById("container").innerHTML = conainerHTML;
+					/*var img = document.getElementsByTagName("img");
+					for (var key = 0; key < img.lenght; key++){
+					img[key].height = "1000";
+					img[key].width = "1000";
+					} */
+                }else{alert("Fail");}
+            },
+            error: function(){
+                alert('There was an error adding your comment');
+            }
+        });
+    });
+    function getRssSection(rssItem){// the string below return a HTML of a  
+        var HTML = "<h3>NewsPapre "+rssItem.newspaper+"</h3>"+
+                "<h3> category"+rssItem.category+"</h3>"+
+                "<h3> region"+rssItem.region+"</h3>"+
+                "<br><h3>RSS content</h3>"+
+                "<div id='"+rssItem.id+"'></div>";
+        parseRSS(rssItem.rssLink, "#"+rssItem.id);
+        return HTML;
+    }
+</script>
+
+</html>

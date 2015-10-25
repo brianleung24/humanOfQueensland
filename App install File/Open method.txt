@@ -1,0 +1,5 @@
+Method to open those two Apps. 
+
+Android: Simply install the .apk file on any Android Platform
+
+IOS: Since I don’t have IOS developer. It require a updated Xcode on OSX and an IOS emulator. Double click the .xcodeproj file and press play
